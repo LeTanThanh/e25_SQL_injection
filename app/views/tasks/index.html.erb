@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Tasks</h2>
+  <%= form_tag "/", method: :get do %>
+    <%= text_field_tag :query, params[:query], {class: "form-control"} %>
+  <% end %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.id %></td>
+          <td><%= task.name %></td>
+          <td><%= task.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
